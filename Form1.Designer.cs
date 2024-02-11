@@ -33,12 +33,15 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             dataGridView1 = new DataGridView();
             Column_PatientID = new DataGridViewTextBoxColumn();
             Column_LastName = new DataGridViewTextBoxColumn();
             Column_FirstName = new DataGridViewTextBoxColumn();
             Column_ExamDate = new DataGridViewTextBoxColumn();
             Column_ExamTime = new DataGridViewTextBoxColumn();
+            Column_PhoneNumber = new DataGridViewTextBoxColumn();
+            Column_UpdatePatient = new DataGridViewButtonColumn();
             Column_SendTextNotification = new DataGridViewButtonColumn();
             label1 = new Label();
             textBoxCtrPatients = new TextBox();
@@ -53,13 +56,13 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column_PatientID, Column_LastName, Column_FirstName, Column_ExamDate, Column_ExamTime, Column_SendTextNotification });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column_PatientID, Column_LastName, Column_FirstName, Column_ExamDate, Column_ExamTime, Column_PhoneNumber, Column_UpdatePatient, Column_SendTextNotification });
             dataGridView1.Location = new Point(26, 106);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.Size = new Size(507, 291);
+            dataGridView1.Size = new Size(701, 298);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -113,11 +116,30 @@
             Column_ExamTime.SortMode = DataGridViewColumnSortMode.NotSortable;
             Column_ExamTime.Width = 70;
             // 
-            // Column_SendTextNotification
+            // Column_PhoneNumber
+            // 
+            Column_PhoneNumber.HeaderText = "Phone number";
+            Column_PhoneNumber.Name = "Column_PhoneNumber";
+            Column_PhoneNumber.ReadOnly = true;
+            Column_PhoneNumber.SortMode = DataGridViewColumnSortMode.NotSortable;
+            Column_PhoneNumber.Width = 80;
+            // 
+            // Column_UpdatePatient
             // 
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.Padding = new Padding(4, 2, 4, 2);
-            Column_SendTextNotification.DefaultCellStyle = dataGridViewCellStyle5;
+            Column_UpdatePatient.DefaultCellStyle = dataGridViewCellStyle5;
+            Column_UpdatePatient.HeaderText = "Update patient info";
+            Column_UpdatePatient.Name = "Column_UpdatePatient";
+            Column_UpdatePatient.ReadOnly = true;
+            Column_UpdatePatient.Text = "Update...";
+            Column_UpdatePatient.UseColumnTextForButtonValue = true;
+            // 
+            // Column_SendTextNotification
+            // 
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Padding = new Padding(4, 2, 4, 2);
+            Column_SendTextNotification.DefaultCellStyle = dataGridViewCellStyle6;
             Column_SendTextNotification.HeaderText = "Send text notification";
             Column_SendTextNotification.Name = "Column_SendTextNotification";
             Column_SendTextNotification.ReadOnly = true;
@@ -165,7 +187,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(587, 417);
+            ClientSize = new Size(781, 455);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(textBoxCtrPatients);
@@ -185,12 +207,14 @@
         private Label label1;
         private TextBox textBoxCtrPatients;
         private Label label2;
+        private Label label3;
         private DataGridViewTextBoxColumn Column_PatientID;
         private DataGridViewTextBoxColumn Column_LastName;
         private DataGridViewTextBoxColumn Column_FirstName;
         private DataGridViewTextBoxColumn Column_ExamDate;
         private DataGridViewTextBoxColumn Column_ExamTime;
+        private DataGridViewTextBoxColumn Column_PhoneNumber;
+        private DataGridViewButtonColumn Column_UpdatePatient;
         private DataGridViewButtonColumn Column_SendTextNotification;
-        private Label label3;
     }
 }

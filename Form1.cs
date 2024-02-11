@@ -38,6 +38,8 @@ namespace RestoreDataGridViewState
                 dgvrow.Cells[Column_FirstName.Index].Value = patient.FirstName;
                 dgvrow.Cells[Column_ExamDate.Index].Value = patient.ExamDate;
                 dgvrow.Cells[Column_ExamTime.Index].Value = patient.ExamDate;
+                dgvrow.Cells[Column_PhoneNumber.Index].Value = patient.PrimaryPhoneNumber;
+
             }
             textBoxCtrPatients.Text = dataGridView1.Rows.Count.ToString();
         }
@@ -51,6 +53,25 @@ namespace RestoreDataGridViewState
                     DataGridViewRow dgvrow = dataGridView1.Rows[e.RowIndex];
                     int selectedPatientId = (int)dgvrow.Cells[Column_PatientID.Index].Value;
                     new DlgSendTextNotification(selectedPatientId).ShowDialog();
+                    // Instead of simply refreshing the screen, we must:
+                    // ==================================================
+                    // 1. save the datagridview characteristics using KenDgvCharacteristics
+                    // 2. call method, refreshScreen
+                    // 3. call method, kenDgvCharacteristics.RestoreDgvCharacteristics()
+                    KenDgvCharacteristics kenDgvCharacteristics = new KenDgvCharacteristics(
+                        dataGridView1, Column_PatientID, Column_LastName);
+                    refreshScreen();
+                    kenDgvCharacteristics.RestoreDgvCharacteristics();
+                }
+                if (Column_UpdatePatient.Index == e.ColumnIndex)
+                {
+                    DataGridViewRow dgvrow = dataGridView1.Rows[e.RowIndex];
+                    int selectedPatientId = (int)dgvrow.Cells[Column_PatientID.Index].Value;
+                    
+                    
+                    new DlgUpdatePatient(selectedPatientId).ShowDialog();
+
+
                     // Instead of simply refreshing the screen, we must:
                     // ==================================================
                     // 1. save the datagridview characteristics using KenDgvCharacteristics

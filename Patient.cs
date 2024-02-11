@@ -12,12 +12,14 @@ namespace RestoreDataGridViewState
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public DateTime ExamDate { get; set; }
-        public Patient(int id, string lastName, string firstName, DateTime examDate)
+        public string PrimaryPhoneNumber { get; set; }
+        public Patient(int id, string lastName, string firstName, DateTime examDate, string primaryPhoneNumber)
         {
             Id = id;
             LastName = lastName;
             FirstName = firstName;
             ExamDate = examDate;
+            PrimaryPhoneNumber = primaryPhoneNumber;
         }
     }
 }
